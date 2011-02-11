@@ -13,7 +13,7 @@ import org.jbase.data.entity.Idable;
  * @version Feb 10th, 2011
  * @param <E>
  */
-public interface SimpleEao<T extends Idable<E>, E extends Number> extends Serializable {
+public interface SimpleEaoInterface<T extends Idable<E>, E extends Number> extends Serializable {
 	
 	/**
 	 * Salva a entidade T
