@@ -49,4 +49,14 @@ public interface SimpleEaoInterface<T extends Idable<E>, E extends Number> exten
 	 * Retorna uma entidade específica a partir do Id
 	 */
 	public T get(E id);
+	
+	
+	/**
+	 * Retorna uma entidade a partir do valor de uma propriedade qualquer
+	 * @param field nome do campo que será utilizado para a busca
+	 * @param value valor do campo que será utilizado para a busca
+	 * @param exactMatch true ? %value% : value
+	 * @return List<T> das entidades encontradas
+	 */
+	public List<T> get(String field, String value, boolean exactMatch);
 }
