@@ -2,6 +2,7 @@ package org.jbase.data.entity;
 
 import java.io.Serializable;
 
+
 /**
  * jBase Idable: especifica os comportamentos mínimos para que uma entidade
  * possa ser acessada a partir de um Id.

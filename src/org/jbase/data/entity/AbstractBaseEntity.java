@@ -8,6 +8,7 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+
 /**
  * jBase BaseEntity: classe abstrata que define os atributos e comportamentos
  * comuns das entidades. 
@@ -19,7 +20,7 @@ import javax.persistence.TemporalType;
  * @version Feb 10th, 2011
  */
 @MappedSuperclass
-public abstract class AbstractBaseEntity<T extends Number> implements Serializable {
+public abstract class AbstractBaseEntity<T extends Number> implements Idable<T>, Serializable {
 
 	/* Número serial da classe */
 	// TODO: pensar em um padrão para isso
@@ -34,7 +35,33 @@ public abstract class AbstractBaseEntity<T extends Number> implements Serializab
 	@Column(name = "date_off")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateOff = new Date();
+	
 
+	/**
+	 * Retorna a classe entidade herdada
+	 * @return Class<? extends AbstractBaseEntity<T>>
+	 */
+	public Class<? extends AbstractBaseEntity<T>> getEntityClass() {
+		return (Class<? extends AbstractBaseEntity<T>>) this.getClass();
+	}
+	
+	/**
+	 * Retorna o nome completo da entidade (com o namespace do pacote)
+	 * @return String
+	 */
+	public String getEntityFullName() {
+		return this.getClass().getName();
+	}
+	
+	/**
+	 * Retorna o nome simples da entidade (sem o namespace do pacote)
+	 * @return String
+	 */
+	public String getEntitySimpleName() {
+		return this.getClass().getSimpleName();
+	}
+	
+	
 	
 	/**
 	 * Configura a data de criação
